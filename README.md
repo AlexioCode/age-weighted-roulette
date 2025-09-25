@@ -5,7 +5,7 @@ But as it is easily extensible to general purpose, I decided to adapt it.
 
 ## Usage
 
-First, you have to write the name of the elements you are giving to the script in singular form and after in plural form, e.g., "movie", "series" and "game".
+First of all, you have to write the name of the elements you are giving to the script in singular form and after in plural form, e.g., "movie", "series" and "game". This is for the script to say "enter a movie" instead of "enter an element" and such things.
 
 The elements of the list can be succeeded by a date field that represents when you added it to the list. This is the format:
 > Darkwood, 29/02/2023
