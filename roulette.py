@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # Introducir juegos ($ para terminar)
     while (elementStr != "$"):
-        elementStr = input("Introduce juego y fecha en la que lo apuntaste en la lista (e.g. Stendhal, 29/02/2023) (no es obligatorio introducir fecha) [$ para terminar]: \n")
+        elementStr = input("Introduce an element and the date when you added it to the list (e.g., Stendhal, 29/02/2023) (it is not required to introduce the date) [$ to finish]: \n")
         
         if elementStr != "": # Si no se introduce nada, vuelve a pedir que se introduzca
             if (elementStr != "$"): # Si no se ha introducido '$'
@@ -53,16 +53,16 @@ if __name__ == '__main__':
                 # Construir el juego y añadirlo a la lista
                 elementsList.append(Element(elementName, dt.datetime.strptime(dateStr, "%d/%m/%Y")))
 
-    print("\n\nTienes " + str(len(elementsList)) + " juegos pendientes.")
-    print("Lista de juegos pendientes:")
+    print("\n\nThere's " + str(len(elementsList)) + " elements remaining.")
+    print("List of remaining elements:")
     for element in elementsList:
         print(element.name)
 
-    repeat = 's'
-    while repeat == 's' and elementsList: # mientras selecciones que sí y haya elementos en la lista
-        print("\nTirando de la ruleta...")
+    repeat = 'y'
+    while repeat == 'y' and elementsList: # mientras selecciones que sí y haya elementos en la lista
+        print("\n\nGACHAPÓÓÓÓN WEEEY!!! (Spinning the wheel...)")
         elementIndex = assignProbabilitesToElements(elementsList)
-        print("\n\nTE HA TOCADO JUGAR: " + elementsList[elementIndex].name + "\ncon una probabilidad de " + str(elementsList[elementIndex].prob))
+        print("\nWINNING" + " element".upper() + ": " + elementsList[elementIndex].name + "\nwith a probability of: " + str(elementsList[elementIndex].prob))
         elementsList.pop(elementIndex)
         if elementsList:
-            repeat = input("¿Quieres volver a tirar de la ruleta? (s/n): ")
+            repeat = input("Do you want to spin the wheel again? (y (yes) / any (no)): ")

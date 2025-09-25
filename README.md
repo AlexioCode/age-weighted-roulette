@@ -7,3 +7,5 @@ The elements of the list can be succeeded by a date field that represents when y
 > Darkwood, 29/02/2023
 
 If you don't specify any date, the element's date will be setted to current time.
+
+To end the elements introduction, write "$" as an element.
