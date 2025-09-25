@@ -10,14 +10,14 @@ class Element:
         self.date = date
         self.prob = prob
 
-# Asignar probabilidades a los juegos y devuelve el índice del juego que más probabilidad tiene
+# Asignar probabilidades a los elementos y devuelve el índice del elemento que más probabilidad tiene
 def assignProbabilitesToElements(elementsList: list):
     elementIndex = 0
     probMax = 0
     for element in elementsList:
         element.prob = random.randint(0, 100)
         antiguedad = dt.datetime.now() - element.date
-        element.prob = element.prob + antiguedad.days * ageMultiplier # antiguedad.days is int
+        element.prob = element.prob + antiguedad.days * ageMultiplier # antiguedad.days es int
         if (element.prob > probMax):
             probMax = element.prob
             elementIndex = elementsList.index(element)
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     elementStr = ""
     elementsList = []
 
-    # Introducir juegos ($ para terminar)
+    # Introducir elementos ($ para terminar)
     while (elementStr != "$"):
         elementStr = input(f"Introduce a {elementType} and the date when you added it to the list (e.g., Stendhal, 29/02/2023) (it is not required to introduce the date) [$ to finish]: \n")
         
@@ -53,7 +53,7 @@ if __name__ == '__main__':
                 else: # Si no indicamos fecha, se le asigna la actual
                     dateStr = dt.datetime.now().strftime("%d/%m/%Y")
                     
-                # Construir el juego y añadirlo a la lista
+                # Construir el Elemento y añadirlo a la lista
                 elementsList.append(Element(elementName, dt.datetime.strptime(dateStr, "%d/%m/%Y")))
 
     print("\n\nThere's " + str(len(elementsList)) + f" {elementTypePlural} remaining.")
