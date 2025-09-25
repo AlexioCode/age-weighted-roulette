@@ -10,6 +10,6 @@ First, you have to write the name of the elements you are giving to the script i
 The elements of the list can be succeeded by a date field that represents when you added it to the list. This is the format:
 > Darkwood, 29/02/2023
 
-If you don't specify any date, the element's date will be setted to current time.
+If you don't specify any date, the element's date will be set to the current time.
 
-To finish the elements introduction, write "$" as an element.
+To finish the elements' introduction, write "$" as an element.
