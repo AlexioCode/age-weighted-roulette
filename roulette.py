@@ -4,7 +4,7 @@ import datetime as dt
 oneYearAddsXProbability = 20
 ageMultiplier = oneYearAddsXProbability / 365
 
-class Juego:
+class Element:
     def __init__(self, nombre, fecha, prob = 0.0):
         self.nombre = nombre
         self.fecha = fecha
@@ -22,6 +22,7 @@ def asignarProbabilidadesAJuegos(listaJuegos: list):
             probMax = juego.prob
             indiceJuego = listaJuegos.index(juego)
     return indiceJuego
+
 
 if __name__ == '__main__':
 
@@ -48,18 +49,18 @@ if __name__ == '__main__':
                 cadFecha = dt.datetime.now().strftime("%d/%m/%Y")
                 
             # Construir el juego y añadirlo a la lista
-            listaJuegos.append(Juego(nombreJuego, dt.datetime.strptime(cadFecha, "%d/%m/%Y")))
+            listaJuegos.append(Element(nombreJuego, dt.datetime.strptime(cadFecha, "%d/%m/%Y")))
 
     print("\n\nTienes " + str(len(listaJuegos)) + " juegos pendientes.")
     print("Lista de juegos pendientes:")
     for juego in listaJuegos:
         print(juego.nombre)
 
-
     repetir = 's'
-    while repetir == 's':
+    while repetir == 's' and listaJuegos: # mientras selecciones que sí y haya elementos en la lista
         print("\nTirando de la ruleta...")
         indiceJuego = asignarProbabilidadesAJuegos(listaJuegos)
-        listaJuegos.pop(indiceJuego)
         print("\n\nTE HA TOCADO JUGAR: " + listaJuegos[indiceJuego].nombre + "\ncon una probabilidad de " + str(listaJuegos[indiceJuego].prob))
-        repetir = input("¿Quieres volver a tirar de la ruleta? (s/n): ")
+        listaJuegos.pop(indiceJuego)
+        if listaJuegos:
+            repetir = input("¿Quieres volver a tirar de la ruleta? (s/n): ")
