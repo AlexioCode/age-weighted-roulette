@@ -1,8 +1,8 @@
 import random
 import datetime as dt
 
-oneYearAddsXProbability = 20
-ageMultiplier = oneYearAddsXProbability / 365
+ONE_YEAR_ADDS_X_PROBABILITY = 20
+AGE_MULTIPLIER = ONE_YEAR_ADDS_X_PROBABILITY / 365
 
 class Element:
     def __init__(self, name, date, prob = 0.0):
@@ -17,7 +17,7 @@ def assignProbabilitesToElements(elementsList: list):
     for element in elementsList:
         element.prob = random.randint(0, 100)
         antiguedad = dt.datetime.now() - element.date
-        element.prob = element.prob + antiguedad.days * ageMultiplier # antiguedad.days es int
+        element.prob = element.prob + antiguedad.days * AGE_MULTIPLIER # antiguedad.days es int
         if (element.prob > probMax):
             probMax = element.prob
             elementIndex = elementsList.index(element)
