@@ -26,15 +26,18 @@ def assignProbabilitesToElements(elementsList: list):
 
 if __name__ == '__main__':
 
-    elementType = input("What type of element are we talking about (singular): ")
+    elementTypeSingular = input("What type of element are we talking about (singular): ")
     elementTypePlural = input("What type of element are we talking about (plural): ")
+    if not elementTypeSingular or not elementTypePlural:
+        elementTypeSingular = "element"
+        elementTypePlural = "elements"
 
     elementStr = ""
     elementsList = []
 
     # Introducir elementos ($ para terminar)
     while (elementStr != "$"):
-        elementStr = input(f"Introduce a {elementType} and the date when you added it to the list (e.g., Stendhal, 29/02/2023) (it is not required to introduce the date) [$ to finish]: \n")
+        elementStr = input(f"Introduce a {elementTypeSingular} and the date when you added it to the list (e.g., Stendhal, 29/02/2023) (it is not required to introduce the date) [$ to finish]: \n")
         
         if elementStr != "": # Si no se introduce nada, vuelve a pedir que se introduzca
             if (elementStr != "$"): # Si no se ha introducido '$'
@@ -65,7 +68,7 @@ if __name__ == '__main__':
     while repeat == 'y' and elementsList: # mientras selecciones que sí y haya elementos en la lista
         print("\n\nGACHAPÓÓÓÓN WEEEY!!! (Spinning the wheel...)")
         elementIndex = assignProbabilitesToElements(elementsList)
-        print("\nWINNING" + f" {elementType}".upper() + ": " + elementsList[elementIndex].name + "\nwith a probability of: " + str(elementsList[elementIndex].prob))
+        print("\nWINNING" + f" {elementTypeSingular}".upper() + ": " + elementsList[elementIndex].name + "\nwith a probability of: " + str(elementsList[elementIndex].prob))
         elementsList.pop(elementIndex)
         if elementsList:
             repeat = input("Do you want to spin the wheel again? (y (yes) / any (no)): ")
